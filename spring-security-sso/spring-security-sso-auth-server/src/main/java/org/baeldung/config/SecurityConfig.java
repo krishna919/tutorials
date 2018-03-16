@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .inMemoryAuthentication()
             .withUser("john")
             .password("123")
-            .roles("USER");
+				.roles( "USER", "ADMIN" );
     } // @formatter:on
 
 }

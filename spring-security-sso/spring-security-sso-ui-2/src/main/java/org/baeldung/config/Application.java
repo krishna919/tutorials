@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.request.RequestContextListener;
 
 @SpringBootApplication
-public class UiApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 
 
     @Bean
@@ -16,6 +16,6 @@ public class UiApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(UiApplication.class, args);
+		SpringApplication.run( Application.class, args );
     }
 }
