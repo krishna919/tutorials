@@ -23,16 +23,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authenticated()
             .and()
             .formLogin()
-            .permitAll();
+				.permitAll();
+		// .and().exceptionHandling().accessDeniedPage( "/Access_Denied" );
     } // @formatter:on
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception { // @formatter:off
-        auth.parentAuthenticationManager(authenticationManager)
-            .inMemoryAuthentication()
-            .withUser("john")
-            .password("123")
-				.roles( "USER", "ADMIN" );
+
+		auth.parentAuthenticationManager( authenticationManager )
+			.inMemoryAuthentication().withUser( "john" ).password( "123" ).roles( "USER", "ADMIN", "DEPOSIT" );
+		auth.inMemoryAuthentication().withUser( "krishna" ).password( "123" ).roles( "USER" );
+		auth.inMemoryAuthentication().withUser( "admin" ).password( "passw0rd" ).roles( "ADMIN" );
+		auth.inMemoryAuthentication().withUser( "staff" ).password( "passw0rd" ).roles( "STAFF" );
+
     } // @formatter:on
 
 }
